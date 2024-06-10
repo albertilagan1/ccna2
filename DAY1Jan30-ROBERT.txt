@@ -128,11 +128,11 @@ Int Fa 0/7
  end
 
 ip dhcp pool CAMERA6
-host 10._.50.6 255.255.255.0
-client-identifier aaaa.bbbb.cccc
+host 10.61.50.6 255.255.255.0
+client-identifier 001a.0706.c2c5
 ip dhcp pool CAMERA8
-host 10._.50.8 255.255.255.0
-client-identifier cccc.dddd.aaaa
+host 10.61.50.8 255.255.255.0
+client-identifier 001a.0709.54fb
 
 !!cisco unified call manager Express command
 !@@@CUCM-M
@@ -386,9 +386,9 @@ route  add  200.0.0.0   mask  255.255.255.0   10.61.1.4
 config t
 dial-peer voice 69 voip
  service rivanaa out-bound
- destination-pattern _69
- session target ipv4:10._.100.8
- incoming called-number _69
+ destination-pattern 6169
+ session target ipv4:10.61.100.8
+ incoming called-number 6169
  dtmf-relay h245-alphanumeric
  codec g711ulaw
  no vad
@@ -411,13 +411,13 @@ application
   param max-time-vm-retry 2
   param voice-mail 1234
   param max-time-call-retry 700
-  param aa-pilot _69
+  param aa-pilot 6169
  service rivanqueue flash:app-b-acd-3.0.0.2.tcl
   param queue-len 15
-  param aa-hunt1 _00
-  param aa-hunt2 _01
-  param aa-hunt3 _77
-  param aa-hunt4 _33
+  param aa-hunt1 6100
+  param aa-hunt2 6191
+  param aa-hunt3 6101
+  param aa-hunt4 6177
   param queue-manager-debugs 1
   param number-of-hunt-grps 4
 ****************************************************************************
